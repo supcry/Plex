@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6D05FD5B-7E6E-4081-BD30-D58FA1BA4170}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Plex</RootNamespace>
+    <AssemblyName>Plex.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HashLib">
+      <HintPath>..\Libs\HashLib.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\Libs\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\IExec.cs" />
+    <Compile Include="Contracts\IMasterNode.cs" />
+    <Compile Include="Contracts\IPlex.cs" />
+    <Compile Include="Contracts\IService.cs" />
+    <Compile Include="Contracts\ISlaveNode.cs" />
+    <Compile Include="Contracts\IStorage.cs" />
+    <Compile Include="Contracts\Data\Connection.cs" />
+    <Compile Include="Contracts\Data\NodeInfo.cs" />
+    <Compile Include="Contracts\Data\NodeTaskStatus.cs" />
+    <Compile Include="Contracts\Data\ProgressInfo.cs" />
+    <Compile Include="Contracts\Data\SubTaskResult.cs" />
+    <Compile Include="Contracts\Data\TaskProcessInfo.cs" />
+    <Compile Include="Helpers\ArrayHelper.cs" />
+    <Compile Include="Helpers\BitConverterExt.cs" />
+    <Compile Include="Helpers\CollectionHelper.cs" />
+    <Compile Include="Helpers\Composition.cs" />
+    <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Helpers\HumanReadability.cs" />
+    <Compile Include="Helpers\LinqHelper.cs" />
+    <Compile Include="Helpers\PathExt.cs" />
+    <Compile Include="Helpers\RandHelper.cs" />
+    <Compile Include="Helpers\Resources.cs" />
+    <Compile Include="Helpers\SerializeHelper.cs" />
+    <Compile Include="Helpers\SysHelper.cs" />
+    <Compile Include="Infrastructure\Application.cs" />
+    <Compile Include="Infrastructure\Configuration\Client\SlaveProxyElement.cs" />
+    <Compile Include="Infrastructure\Configuration\Client\SlaveProxyElementList.cs" />
+    <Compile Include="Infrastructure\Configuration\Services\MasterElement.cs" />
+    <Compile Include="Infrastructure\Configuration\Services\ServicesElement.cs" />
+    <Compile Include="Infrastructure\Configuration\Services\SlaveElement.cs" />
+    <Compile Include="Infrastructure\Configuration\Settings.cs" />
+    <Compile Include="Infrastructure\ServiceContainer.cs" />
+    <Compile Include="Master\MasterNode.cs" />
+    <Compile Include="Master\NodeDiscover.cs" />
+    <Compile Include="Master\NodePingInfo.cs" />
+    <Compile Include="Master\NodeTaskData.cs" />
+    <Compile Include="Master\TaskScheduler.cs" />
+    <Compile Include="Network\IProxy.cs" />
+    <Compile Include="Network\Proxy.cs" />
+    <Compile Include="Network\ServiceReference.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy\MasterNodeClient.cs" />
+    <Compile Include="Proxy\PlexClient.cs" />
+    <Compile Include="Proxy\SlaveNodeClient.cs" />
+    <Compile Include="Proxy\StorageClient.cs" />
+    <Compile Include="Slave\ExecProxy.cs" />
+    <Compile Include="Slave\SlaveNode.cs" />
+    <Compile Include="Slave\TaskProcess.cs" />
+    <Compile Include="Storage\FileSet.cs" />
+    <Compile Include="Storage\FileStorage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChangeLog.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
